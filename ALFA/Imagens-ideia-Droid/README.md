@@ -8,7 +8,7 @@ Lista materiais:
 
 1x- Sensor de distância laser VL53L0X
 
-1x- Giroscópio
+1x- Acelerômetro e Giroscópio 3 Eixos 6 DOF MPU-6050
 
 1x- Fonte de alimentação compatível com servo motores (5V)
 
