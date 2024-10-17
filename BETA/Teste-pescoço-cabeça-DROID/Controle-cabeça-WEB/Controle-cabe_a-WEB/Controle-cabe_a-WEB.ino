@@ -28,21 +28,12 @@ void setup() {
 
   // Inicializa os servos suavemente nas posições iniciais
   for (int i = 0; i < 4; i++) {
-  int currentPulse = map(currentPosition[i], 0, 180, SERVO_MIN_PULSE, SERVO_MAX_PULSE);
-  int targetPulse = map(targetPosition[i], 0, 180, SERVO_MIN_PULSE, SERVO_MAX_PULSE);
-
-  while (currentPulse != targetPulse) {
-    if (currentPulse < targetPulse) {
-      currentPulse = min(currentPulse + 1, targetPulse); // Incrementa lentamente
-    } else {
-      currentPulse = max(currentPulse - 1, targetPulse); // Decrementa lentamente
-    }
-
-    pwm.setPWM(i, 0, currentPulse);
-    delay(20); // Velocidade definida para 20
+    int targetPulse = map(initialPosition[i], 0, 180, SERVO_MIN_PULSE, SERVO_MAX_PULSE);
+    pwm.setPWM(i, 0, targetPulse);
+    
+    currentPosition[i] = initialPosition[i]; // Atualiza a posição atual para a posição inicial
+    
   }
-}
-
 
   // Configura o ESP32 como ponto de acesso
   WiFi.softAP(ssid, password);
