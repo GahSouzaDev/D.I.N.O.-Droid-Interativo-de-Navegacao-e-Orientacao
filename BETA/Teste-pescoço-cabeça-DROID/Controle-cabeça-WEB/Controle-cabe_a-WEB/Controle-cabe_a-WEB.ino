@@ -13,9 +13,9 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define SERVO_MAX_PULSE 512  // Posição máxima do pulso
 
 // Configurações de ângulos dos servos
-int minPosition[4] = {100, 0, 90, 50};    // Posições mínimas
+int minPosition[4] = {100, 10, 90, 50};    // Posições mínimas
 int initialPosition[4] = {140, 100, 130, 80}; // Posições iniciais
-int maxPosition[4] = {170, 180, 150, 150}; // Posições máximas
+int maxPosition[4] = {170, 190, 150, 140}; // Posições máximas
 int currentPosition[4] = {140, 100, 130, 80}; // Posições atuais
 
 // Servidor web na porta 80
