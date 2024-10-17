@@ -92,14 +92,14 @@ void loop() {
     client.println("<p><a href=\"/servo1=d\"><button class=\"b3\">Direita</button></a></p>");
 
     client.println("<h2>Servo de Elevação</h2>");
-    client.println("<p><a href=\"/servo3=q\"><button class=\"b1\">Cabeça Baixa</button></a></p>");
+    client.println("<p><a href=\"/servo3=e\"><button class=\"b1\">Cabeça Alta</button></a></p>");
     client.println("<p><a href=\"/servo3=w\"><button class=\"b2\">Cabeça no Meio</button></a></p>");
-    client.println("<p><a href=\"/servo3=e\"><button class=\"b3\">Cabeça Alta</button></a></p>");
+    client.println("<p><a href=\"/servo3=q\"><button class=\"b3\">Cabeça Baixa</button></a></p>");
 
     client.println("<h2>Servo Antena</h2>");
-    client.println("<p><a href=\"/servo2=c\"><button class=\"b1\">Antena Baixa</button></a></p>");
+    client.println("<p><a href=\"/servo2=c\"><button class=\"b1\">Antena Alta</button></a></p>");
     client.println("<p><a href=\"/servo2=x\"><button class=\"b2\">Antena Meio</button></a></p>");
-    client.println("<p><a href=\"/servo2=z\"><button class=\"b3\">Antena Alta</button></a></p>");
+    client.println("<p><a href=\"/servo2=z\"><button class=\"b3\">Antena Baixa</button></a></p>");
 
     client.println("</body>");
     client.println("</html>");
