@@ -82,9 +82,9 @@ void loop() {
     
     // Botões para controle dos servos
     client.println("<h2>Servo de Posição</h2>");
-    client.println("<p><a href=\"/servo0=3\"><button class=\"b1\">Trás - Trás</button></a></p>");
-    client.println("<p><a href=\"/servo0=2\"><button class=\"b2\">Meio - Meio</button></a></p>");
-    client.println("<p><a href=\"/servo0=1\"><button class=\"b3\">Frente - Frente</button></a></p>");
+    client.println("<p><a href=\"/servo0=3\"><button class=\"b1\">Frente</button></a></p>");
+    client.println("<p><a href=\"/servo0=2\"><button class=\"b2\">Meio</button></a></p>");
+    client.println("<p><a href=\"/servo0=1\"><button class=\"b3\">Trás</button></a></p>");
 
     client.println("<h2>Servo de Direção</h2>");
     client.println("<p><a href=\"/servo1=a\"><button class=\"b1\">Esquerda</button></a></p>");
@@ -97,9 +97,9 @@ void loop() {
     client.println("<p><a href=\"/servo3=e\"><button class=\"b3\">Cabeça Alta</button></a></p>");
 
     client.println("<h2>Servo Antena</h2>");
-    client.println("<p><a href=\"/servo2=z\"><button class=\"b1\">Antena Baixa</button></a></p>");
+    client.println("<p><a href=\"/servo2=z\"><button class=\"b1\">Antena Alta</button></a></p>");
     client.println("<p><a href=\"/servo2=x\"><button class=\"b2\">Antena Meio</button></a></p>");
-    client.println("<p><a href=\"/servo2=c\"><button class=\"b3\">Antena Alta</button></a></p>");
+    client.println("<p><a href=\"/servo2=c\"><button class=\"b3\">Antena Baixa</button></a></p>");
 
     client.println("</body>");
     client.println("</html>");
