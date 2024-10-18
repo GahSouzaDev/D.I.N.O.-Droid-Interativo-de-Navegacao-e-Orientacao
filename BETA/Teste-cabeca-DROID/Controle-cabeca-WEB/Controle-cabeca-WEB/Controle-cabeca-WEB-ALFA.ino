@@ -13,10 +13,10 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define SERVO_MAX_PULSE 512  // Posição máxima do pulso
 
 // Configurações de ângulos dos servos
-int minPosition[4] = {100, 10, 90, 50};    // Posições mínimas
-int initialPosition[4] = {130, 100, 130, 80}; // Posições iniciais
+int minPosition[4] = {90, 10, 90, 50};    // Posições mínimas
+int initialPosition[4] = {125, 100, 120, 80}; // Posições iniciais
 int maxPosition[4] = {160, 190, 150, 140}; // Posições máximas
-int currentPosition[4] = {130, 100, 130, 80}; // Posições atuais
+int currentPosition[4] = {125, 100, 130, 80}; // Posições atuais
 
 // Servidor web na porta 80
 WiFiServer server(80);
@@ -97,9 +97,9 @@ void loop() {
     client.println("<p><a href=\"/servo3=q\"><button class=\"b3\">Cabeça Baixa</button></a></p>");
 
     client.println("<h2>Servo Antena</h2>");
-    client.println("<p><a href=\"/servo2=c\"><button class=\"b1\">Antena Alta</button></a></p>");
+    client.println("<p><a href=\"/servo2=c\"><button class=\"b1\">Antena Baixo</button></a></p>");
     client.println("<p><a href=\"/servo2=x\"><button class=\"b2\">Antena Meio</button></a></p>");
-    client.println("<p><a href=\"/servo2=z\"><button class=\"b3\">Antena Baixa</button></a></p>");
+    client.println("<p><a href=\"/servo2=z\"><button class=\"b3\">Antena Alto</button></a></p>");
 
     client.println("</body>");
     client.println("</html>");
