@@ -41,13 +41,13 @@ void loop() {
   int targetPosition = initialPosition; // Posição padrão do servo
 
   // Condições para ajustar a posição do servo
-  if (a.acceleration.z < -8) {
+  if (a.acceleration.z < -9) {
     targetPosition = maxPosition; // Mover para a posição máxima
-  } else if (a.acceleration.z > 8) {
+  } else if (a.acceleration.z > 9) {
     targetPosition = minPosition; // Mover para a posição mínima
   } else {
     // Mapeia a posição do servo com base na leitura do eixo Z
-    targetPosition = map(a.acceleration.z, -8, 8, minPosition, maxPosition);
+    targetPosition = map(a.acceleration.z, -9, 9, minPosition, maxPosition);
   }
 
   // Mover servo de forma suave para a posição alvo
