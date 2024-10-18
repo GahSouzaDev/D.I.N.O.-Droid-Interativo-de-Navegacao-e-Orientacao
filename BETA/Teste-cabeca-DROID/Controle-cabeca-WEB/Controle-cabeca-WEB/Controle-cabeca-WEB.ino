@@ -14,9 +14,9 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
 // Configurações de ângulos dos servos
 int minPosition[4] = {100, 10, 90, 50};    // Posições mínimas
-int initialPosition[4] = {140, 100, 130, 80}; // Posições iniciais
-int maxPosition[4] = {170, 190, 150, 140}; // Posições máximas
-int currentPosition[4] = {140, 100, 130, 80}; // Posições atuais
+int initialPosition[4] = {130, 100, 130, 80}; // Posições iniciais
+int maxPosition[4] = {160, 190, 150, 140}; // Posições máximas
+int currentPosition[4] = {130, 100, 130, 80}; // Posições atuais
 
 // Servidor web na porta 80
 WiFiServer server(80);
@@ -142,12 +142,12 @@ void moveServo(int servoNum, int targetAngle) {
   if (startPulse < endPulse) {
     for (int pos = startPulse; pos <= endPulse; pos++) {
       pwm.setPWM(servoNum, 0, pos);
-      delay(5); // Atraso para suavizar o movimento
+      delay(4); // Atraso para suavizar o movimento
     }
   } else {
     for (int pos = startPulse; pos >= endPulse; pos--) {
       pwm.setPWM(servoNum, 0, pos);
-      delay(5); // Atraso para suavizar o movimento
+      delay(4); // Atraso para suavizar o movimento
     }
   }
 
