@@ -6,7 +6,7 @@ Lista materiais:
 
 18x- Servos motores
 
-1x- Sensor de distância laser VL53L0X
+1x- Sensor de distância laser ultrassonico
 
 1x- Acelerômetro e Giroscópio 3 Eixos 6 DOF MPU-6050
 
