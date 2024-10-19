@@ -9,7 +9,7 @@ Adafruit_MPU6050 mpu;
 // Configurações do servo
 #define SERVO_MIN_PULSE 102  // Posição mínima do pulso
 #define SERVO_MAX_PULSE 512  // Posição máxima do pulso
-#define SERVO_NUM 3          // Servo a ser controlado (porta 2)
+#define SERVO_NUM 3          // Servo a ser controlado (porta 3)
 
 int minPosition = 50;       // Posição mínima do servo
 int maxPosition = 140;      // Posição máxima do servo
