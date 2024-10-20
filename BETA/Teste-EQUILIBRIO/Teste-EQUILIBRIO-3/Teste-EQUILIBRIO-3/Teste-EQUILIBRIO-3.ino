@@ -13,8 +13,8 @@ Adafruit_MPU6050 mpu;
 #define SERVO_NUM_1 3        // Servo a ser controlado (porta 3)
 
 int minPosition_0 = 80;      // Posição mínima do servo 0
-int maxPosition_0 = 160;     // Posição máxima do servo 0
-int initialPosition_0 = 120;  // Posição inicial do servo 0
+int maxPosition_0 = 180;     // Posição máxima do servo 0
+int initialPosition_0 = 130;  // Posição inicial do servo 0
 int servoPosition_0 = initialPosition_0; // Posição atual do servo 0
 int moveSpeed = 3;           // Velocidade do movimento
 
@@ -23,11 +23,20 @@ int maxPosition_1 = 130;     // Posição máxima do servo 1
 int initialPosition_1 = 75;  // Posição inicial do servo 1
 int servoPosition_1 = initialPosition_1; // Posição atual do servo 1
 
+int olhoDireito = 12;
+int olhoEsquerdo = 13;
+
 void setup() {
   Serial.begin(9600);
   pwm.begin();
   pwm.setPWMFreq(50); // Frequência de 50 Hz para servos
+  
+  pinMode(olhoDireito,OUTPUT);
+  pinMode(olhoEsquerdo,OUTPUT);
 
+  digitalWrite(olhoDireito,HIGH);
+  digitalWrite(olhoEsquerdo,HIGH);
+  
   // Inicializa o MPU6050
   if (!mpu.begin()) {
     Serial.println("Falha ao inicializar o MPU6050!");
