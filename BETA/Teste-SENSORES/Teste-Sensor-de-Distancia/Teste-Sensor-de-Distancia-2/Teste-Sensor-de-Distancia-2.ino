@@ -19,7 +19,7 @@ const int ledVermelho = 26;
 
 // Parâmetros do servo
 const int servoChannel = 1; // Canal do servo no PCA9685
-int angulo = 100; // Posição inicial do servo
+float angulo = 100.0; // Posição inicial do servo, agora em float para meio grau
 int direcao = 1; // 1 para aumentar o ângulo, -1 para diminuir
 
 // Variáveis para distância
@@ -27,8 +27,8 @@ long duracao;
 int distancia;
 
 // Função para converter ângulo em pulsos para o servo
-int anguloParaPulso(int angulo) {
-  int pulso = map(angulo, 0, 180, SERVO_MIN_PULSE, SERVO_MAX_PULSE);
+int anguloParaPulso(float angulo) {
+  int pulso = map((int)angulo, 0, 180, SERVO_MIN_PULSE, SERVO_MAX_PULSE);
   return pulso;
 }
 
@@ -76,12 +76,12 @@ void loop() {
   Serial.println(" cm");
 
   // Controle dos LEDs com base na distância
-  if (distancia > 30) {
+  if (distancia > 60) {
     // Distância maior que 30 cm - LED Verde aceso
     digitalWrite(ledVerde, HIGH);
     digitalWrite(ledAmarelo, LOW);
     digitalWrite(ledVermelho, LOW);
-  } else if (distancia > 10 && distancia <= 30) {
+  } else if (distancia > 30 && distancia <= 60) {
     // Distância entre 10 cm e 30 cm - LED Amarelo aceso
     digitalWrite(ledVerde, LOW);
     digitalWrite(ledAmarelo, HIGH);
@@ -90,22 +90,22 @@ void loop() {
     // Distância menor que 10 cm - LED Vermelho piscando
     digitalWrite(ledVerde, LOW);
     digitalWrite(ledAmarelo, LOW);
-    digitalWrite(ledVermelho, millis() % 500 < 250 ? HIGH : LOW);
+    digitalWrite(ledVermelho, HIGH);
   }
 
   // Atualiza o ângulo do servo para criar o efeito de sonar
-  angulo += direcao * 3; // Muda o ângulo na velocidade de 3 graus
+  angulo += direcao * 0.8; // Muda o ângulo em incrementos de 0.5 graus
 
   // Verifica os limites do movimento do servo
-  if (angulo >= 190) {
+  if (angulo >= 190.0) {
     direcao = -1; // Inverte a direção para voltar para 10 graus
-  } else if (angulo <= 10) {
+  } else if (angulo <= 10.0) {
     direcao = 1; // Inverte a direção para ir até 190 graus
   }
 
   // Move o servo para o novo ângulo
   pwm.setPWM(servoChannel, 0, anguloParaPulso(angulo));
 
-  // Pausa para dar tempo ao servo e ao sensor
-  delay(100);
+  // Pausa para controlar a velocidade e suavizar o movimento
+  delay(1); // Dobre o tempo para manter a mesma velocidade
 }
