@@ -94,17 +94,33 @@ void loop() {
   }
 
   // Atualiza o ângulo do servo para criar o efeito de sonar
-  angulo += direcao * 5; // Muda o ângulo na velocidade de 3 graus
+  int startPulse = anguloParaPulso(angulo);
+  int endPulse = anguloParaPulso(angulo + direcao); // Muda a direção de 1 grau
+
+  // Ajusta a velocidade do servo suavemente
+  if (startPulse < endPulse) {
+    for (int pos = startPulse; pos <= endPulse; pos++) {
+      pwm.setPWM(servoChannel, 0, pos);
+      delay(1); // Ajusta o tempo para a velocidade desejada
+    }
+  } else {
+    for (int pos = startPulse; pos >= endPulse; pos--) {
+      pwm.setPWM(servoChannel, 0, pos);
+      delay(1); // Ajusta o tempo para a velocidade desejada
+    }
+  }
 
   // Verifica os limites do movimento do servo
   if (angulo >= 190) {
+    angulo = 190; // Garante que o ângulo não ultrapasse 190
     direcao = -1; // Inverte a direção para voltar para 10 graus
   } else if (angulo <= 10) {
+    angulo = 10; // Garante que o ângulo não seja menor que 10
     direcao = 1; // Inverte a direção para ir até 190 graus
   }
 
   // Move o servo para o novo ângulo
-  pwm.setPWM(servoChannel, 0, anguloParaPulso(angulo));
+  angulo += direcao * 3; // Muda o ângulo em 1 grau
 
   // Pausa para dar tempo ao servo e ao sensor
   delay(100);
