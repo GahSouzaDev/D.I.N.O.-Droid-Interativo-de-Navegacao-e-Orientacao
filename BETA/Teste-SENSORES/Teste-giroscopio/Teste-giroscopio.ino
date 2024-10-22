@@ -5,7 +5,7 @@
 Adafruit_MPU6050 mpu;
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   // Inicializa a comunicação I2C
   if (!mpu.begin()) {
     Serial.println("Falha ao inicializar o MPU6050! Verifique as conexões.");
