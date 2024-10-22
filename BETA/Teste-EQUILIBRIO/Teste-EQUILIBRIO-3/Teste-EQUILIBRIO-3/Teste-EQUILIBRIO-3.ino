@@ -12,8 +12,8 @@ Adafruit_MPU6050 mpu;
 #define SERVO_NUM_0 0        // Servo a ser controlado (porta 0)
 #define SERVO_NUM_1 3        // Servo a ser controlado (porta 3)
 
-int minPosition_0 = 100;      // Posição mínima do servo 0
-int maxPosition_0 = 150;     // Posição máxima do servo 0
+int minPosition_0 = 80;      // Posição mínima do servo 0
+int maxPosition_0 = 180;     // Posição máxima do servo 0
 int initialPosition_0 = 130;  // Posição inicial do servo 0
 int servoPosition_0 = initialPosition_0; // Posição atual do servo 0
 int moveSpeed = 1;           // Velocidade do movimento
@@ -73,19 +73,19 @@ void loop() {
   int targetPosition_1 = initialPosition_1; // Posição padrão do servo 1
 
   // Condições para ajustar a posição do servo 1
-  if (a.acceleration.z < -10) {
+  if (a.acceleration.z < -4) {
     targetPosition_1 = maxPosition_1; // Mover para a posição máxima
-  } else if (a.acceleration.z > 10) {
+  } else if (a.acceleration.z > 4) {
     targetPosition_1 = minPosition_1; // Mover para a posição mínima
   } else {
     // Mapeia a posição do servo 1 com base na leitura do eixo Z
-    targetPosition_1 = map(a.acceleration.z, -10, 10, minPosition_1, maxPosition_1);
+    targetPosition_1 = map(a.acceleration.z, -4, 4, minPosition_1, maxPosition_1);
   }
 
   // Mover servo 1 de forma suave para a posição alvo
   moveServoSmoothly(SERVO_NUM_1, targetPosition_1, moveSpeed);
 
-  delay(40); // Atraso para evitar sobrecarga na CPU
+  delay(20); // Atraso para evitar sobrecarga na CPU
 }
 
 void moveServoSmoothly(int servoNum, int targetAngle, int speed) {
