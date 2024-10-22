@@ -5,9 +5,9 @@
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
 // Define os limites para os servos
-#define S4_MIN 100
-#define S4_MED 110
-#define S4_MAX 120
+#define S4_MIN 108
+#define S4_MED 118
+#define S4_MAX 128
 
 #define S5_MIN 75
 #define S5_MED 85
