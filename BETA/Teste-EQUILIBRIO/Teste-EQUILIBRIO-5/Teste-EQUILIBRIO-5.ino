@@ -32,14 +32,14 @@ int maxPosition_2 = 150;     // Posição máxima do novo servo 2
 int initialPosition_2 = 120; // Posição inicial do servo 2
 int servoPosition_2 = initialPosition_2; // Posição atual do servo 2
 
-int minPosition_4 = 108;      // Posição mínima do novo servo 4
-int maxPosition_4 = 128;     // Posição máxima do novo servo 4
+int minPosition_4 = 98;      // Posição mínima do novo servo 4
+int maxPosition_4 = 138;     // Posição máxima do novo servo 4
 int initialPosition_4 = 118; // Posição inicial do servo 4
 int servoPosition_4 = initialPosition_4; // Posição atual do servo 4
 
-int minPosition_5 = 75;      // Posição mínima do novo servo 5
-int maxPosition_5 = 95;     // Posição máxima do novo servo 5
-int initialPosition_5 = 85; // Posição inicial do servo 5
+int minPosition_5 = 70;      // Posição mínima do novo servo 5
+int maxPosition_5 = 110;     // Posição máxima do novo servo 5
+int initialPosition_5 = 90; // Posição inicial do servo 5
 int servoPosition_5 = initialPosition_5; // Posição atual do servo 5
 
 int minPosition_6 = 65;      // Posição mínima do novo servo 6
@@ -124,23 +124,23 @@ void loop() {
 
   // Controle do servo 2 (porta 6)
   int targetPosition_4 = initialPosition_4;
-  if (a.acceleration.y < -3) {
-    targetPosition_4 = minPosition_4; 
-  } else if (a.acceleration.y > 3) {
+  if (a.acceleration.y < -4) {
     targetPosition_4 = maxPosition_4; 
+  } else if (a.acceleration.y > 4) {
+    targetPosition_4 = minPosition_4; 
   } else {
-    targetPosition_4 = map(a.acceleration.z, -3, 3, maxPosition_4, minPosition_4);
+    targetPosition_4 = map(a.acceleration.y, -4, 4, minPosition_4, maxPosition_4);
   }
   moveServoSmoothly(SERVO_NUM_4, targetPosition_4, moveSpeed);
 
     // Controle do servo 2
   int targetPosition_5 = initialPosition_5;
-  if (a.acceleration.y < -3) {
-    targetPosition_5 = minPosition_5; 
-  } else if (a.acceleration.y > 3) {
+  if (a.acceleration.y < -4) {
     targetPosition_5 = maxPosition_5; 
+  } else if (a.acceleration.y > 4) {
+    targetPosition_5 = minPosition_5; 
   } else {
-    targetPosition_5 = map(a.acceleration.z, -3, 3, maxPosition_5, minPosition_5);
+    targetPosition_5 = map(a.acceleration.y, -4, 4, minPosition_5, maxPosition_5);
   }
   moveServoSmoothly(SERVO_NUM_5, targetPosition_5, moveSpeed);
   delay(20);
