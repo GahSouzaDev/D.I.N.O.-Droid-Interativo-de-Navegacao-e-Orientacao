@@ -4,7 +4,7 @@
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
 // Definições para os servos
-#define SERVO_MIN_PULSE 102  // Posição mínima do pulso
+#define SERVO_MIN_PULSE 112  // Posição mínima do pulso
 #define SERVO_MAX_PULSE 512  // Posição máxima do pulso
 
 // Números dos servos
