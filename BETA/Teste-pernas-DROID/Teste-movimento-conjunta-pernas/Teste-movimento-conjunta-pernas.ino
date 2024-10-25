@@ -6,37 +6,37 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
 // Define os limites para os servos da perna direita (9 e 8)
 #define S9_MAX 110
-#define S9_MED 130
-#define S9_MIN 150
+#define S9_MED 125
+#define S9_MIN 140
 
 #define S8_MAX 110
-#define S8_MED 130
-#define S8_MIN 150
+#define S8_MED 125
+#define S8_MIN 140
 
 // Define os limites para os servos da perna esquerda (11 e 10)
 #define S11_MAX 90
-#define S11_MED 70
-#define S11_MIN 50
+#define S11_MED 75
+#define S11_MIN 60
 
 #define S10_MAX 80
-#define S10_MED 60
-#define S10_MIN 40
+#define S10_MED 65
+#define S10_MIN 50
 
 #define S13_MAX 100
-#define S13_MED 70
-#define S13_MIN 40
+#define S13_MED 90
+#define S13_MIN 80
 
 #define S12_MAX 90
-#define S12_MED 60
-#define S12_MIN 30
+#define S12_MED 80
+#define S12_MIN 70
 
 #define S15_MAX 95
-#define S15_MED 125
-#define S15_MIN 155
+#define S15_MED 105
+#define S15_MIN 115
 
 #define S14_MAX 85
-#define S14_MED 115
-#define S14_MIN 145
+#define S14_MED 95
+#define S14_MIN 105
 
 #define S4_MAX 120
 #define S4_MED 90
@@ -152,10 +152,10 @@ void loop() {
 
         case '8':
         // Coloca a perna direita no mínimo e a perna esquerda no máximo
-        pwm.setPWM(4, 0, pulseLength(S5_MIN));
-        pwm.setPWM(5, 0, pulseLength(S6_MIN));
-        pwm.setPWM(6, 0, pulseLength(S7_MAX));
-        pwm.setPWM(7, 0, pulseLength(S8_MAX));        
+        pwm.setPWM(4, 0, pulseLength(S4_MIN));
+        pwm.setPWM(5, 0, pulseLength(S5_MIN));
+        pwm.setPWM(6, 0, pulseLength(S6_MAX));
+        pwm.setPWM(7, 0, pulseLength(S7_MAX));        
         break;
 
         case '9':
@@ -168,10 +168,10 @@ void loop() {
 
         case '0':
         // Coloca a perna direita no mínimo e a perna esquerda no máximo
-        pwm.setPWM(4, 0, pulseLength(S4_MIN));
-        pwm.setPWM(5, 0, pulseLength(S5_MIN));
-        pwm.setPWM(6, 0, pulseLength(S6_MAX));
-        pwm.setPWM(7, 0, pulseLength(S7_MAX));        
+        pwm.setPWM(4, 0, pulseLength(S4_MED));
+        pwm.setPWM(5, 0, pulseLength(S5_MED));
+        pwm.setPWM(6, 0, pulseLength(S6_MED));
+        pwm.setPWM(7, 0, pulseLength(S7_MED));        
         break;
 
       default:
