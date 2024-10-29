@@ -11,9 +11,9 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define SERVO_MAX_PULSE 512 // Pulso máximo para o servo
 
 int minPosition[4] = {80, 5, 90, 40};       // Posições mínimas
-int initialPosition[4] = {130, 95, 120, 75}; // Posições iniciais
-int maxPosition[4] = {160, 185, 150, 130};   // Posições máximas
-int currentPosition[4] = {130, 95, 120, 75}; // Posições atuais
+int initialPosition[4] = {130, 100, 120, 75}; // Posições iniciais
+int maxPosition[4] = {160, 195, 150, 130};   // Posições máximas
+int currentPosition[4] = {130, 100, 120, 75}; // Posições atuais
 
 //S0 = Servo de elevação(base) min=80 media=120 max=160
 //S1 = Servo de posição(horizontal) min=10 media=100 max=190
