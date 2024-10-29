@@ -1,7 +1,7 @@
 // Definições de pinos
-const int trigPin = 4;
+const int trigPin = 2;
 const int echoPin = 5;
-const int ledVerde = 14;
+const int ledVerde = 33;
 const int ledAmarelo = 27;
 const int ledVermelho = 26;
 

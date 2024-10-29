@@ -29,21 +29,21 @@ void setup() {
 
   WiFi.softAP(ssid, password); // Inicia o ponto de acesso Wi-Fi
 
-pinMode(12 ,OUTPUT);//Olho direito
-pinMode(13 ,OUTPUT);//Olho esquerdo
+pinMode(14 ,OUTPUT);//Olho direito
+pinMode(12 ,OUTPUT);//Olho esquerdo
 
 pinMode(25 ,OUTPUT);//LED Azul
-pinMode(14 ,OUTPUT);//LED Verde
+pinMode(33 ,OUTPUT);//LED Verde
 pinMode(27 ,OUTPUT);//LED Amarelo
 pinMode(26 ,OUTPUT);//LED Vermelho
 
 pinMode(34 ,OUTPUT);//Buzzer
 
-digitalWrite(12, HIGH);
-digitalWrite(13,HIGH);
+digitalWrite(14, HIGH);
+digitalWrite(12,HIGH);
 
 digitalWrite(25,LOW);
-digitalWrite(14,LOW);
+digitalWrite(33,LOW);
 digitalWrite(27,LOW);
 digitalWrite(26,LOW);
 
