@@ -7,18 +7,18 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define SERVO_MIN_PULSE 112 // Pulso mínimo para o servo
 #define SERVO_MAX_PULSE 512 // Pulso máximo para o servo
 
-int minPosition[16] = {60, 5, 90, 40,60,120,60,135,135,135,50,60,70,80,105,115};       // Posições mínimas
-int initialPosition[16] = {120, 100, 120, 75,90,90,90,105,120,120,65,75,80,90,95,105}; // Posições iniciais
-int maxPosition[16] = {160, 195, 150, 130,120,60,120,75,105,105,80,90,90,100,85,95};   // Posições máximas
-int currentPosition[16] = {120, 100, 120, 75,90,90,90,105,120,120,65,75,80,90,95,105}; // Posições atuais
+int minPosition[16] = {60, 5, 90, 40, 60, 120, 60, 135, 135, 135, 50, 60, 70, 80, 105, 115};       // Posições mínimas
+int initialPosition[16] = {115, 100, 120, 75, 90, 90, 90, 105, 120, 120, 65, 75, 80, 90, 95, 105}; // Posições iniciais
+int maxPosition[16] = {160, 195, 150, 130, 120, 60, 120, 75, 105, 105, 80, 90, 90, 100, 85, 95};   // Posições máximas
+int currentPosition[16] = {115, 100, 120, 75, 90, 90, 90, 105, 120, 120, 65, 75, 80, 90, 95, 105}; // Posições atuais
 
 // Definição dos pinos
 #define LED_ESP32 2       // LED integrado no ESP32
 #define OLHO_ESQUERDO 14  // Olho esquerdo
 #define OLHO_DIREITO 12   // Olho direito
-#define LED_VERMELHO 32      // LED vermelho
+#define LED_VERMELHO 32   // LED vermelho
 #define LED_AMARELO 26    // LED amarelo
-#define LED_VERDE 33   // LED verde
+#define LED_VERDE 33      // LED verde
 #define LED_AZUL 27       // LED azul
 #define BUZZER 34         // Buzzer
 
@@ -40,102 +40,83 @@ void moveServo(int servoNum, int targetAngle) {
   currentPosition[servoNum] = targetAngle;
 }
 
-// Função para piscar os olhos como olhos humanos
+// Função para piscar os olhos
 void piscarOlhos() {
   digitalWrite(OLHO_ESQUERDO, HIGH);
   digitalWrite(OLHO_DIREITO, HIGH);
-  delay(80); // Mantém os olhos abertos por um curto tempo
-
+  delay(80);
   digitalWrite(OLHO_ESQUERDO, LOW);
   digitalWrite(OLHO_DIREITO, LOW);
-  delay(150); // Pisca rápido, imitando o piscar humano
-
+  delay(150);
   digitalWrite(OLHO_ESQUERDO, HIGH);
   digitalWrite(OLHO_DIREITO, HIGH);
-  delay(2000); // Mantém os olhos abertos por um tempo maior
-
+  delay(2000);
   digitalWrite(OLHO_ESQUERDO, LOW);
   digitalWrite(OLHO_DIREITO, LOW);
-  delay(180); // Pisca de novo
-
+  delay(180);
   digitalWrite(OLHO_ESQUERDO, HIGH);
   digitalWrite(OLHO_DIREITO, HIGH);
-  delay(3500); // Mantém os olhos abertos por um tempo maior
-
+  delay(3500);
   digitalWrite(OLHO_ESQUERDO, LOW);
   digitalWrite(OLHO_DIREITO, LOW);
-  delay(150); // Pisca de novo
-
+  delay(150);
   digitalWrite(OLHO_ESQUERDO, HIGH);
   digitalWrite(OLHO_DIREITO, HIGH);
-  delay(60); // Mantém os olhos abertos por um curto tempo
-
+  delay(60);
   digitalWrite(OLHO_ESQUERDO, LOW);
   digitalWrite(OLHO_DIREITO, LOW);
-  delay(200); // Pisca de novo
-
+  delay(200);
   digitalWrite(OLHO_ESQUERDO, HIGH);
   digitalWrite(OLHO_DIREITO, HIGH);
-  delay(2500); // Mantém os olhos abertos por um tempo maior
-
+  delay(2500);
   digitalWrite(OLHO_ESQUERDO, LOW);
   digitalWrite(OLHO_DIREITO, LOW);
-  delay(100); // Pisca de novo
-
+  delay(100);
   digitalWrite(OLHO_ESQUERDO, HIGH);
   digitalWrite(OLHO_DIREITO, HIGH);
-  delay(1800); // Mantém os olhos abertos por um tempo maior
-
+  delay(1800);
   digitalWrite(OLHO_ESQUERDO, LOW);
   digitalWrite(OLHO_DIREITO, LOW);
-  delay(100); // Pisca de novo
+  delay(100);
 }
-
 
 // Função para a sequência de LEDs
 void sequenciaLEDs() {
-  digitalWrite(LED_VERMELHO, HIGH); // Liga o verde
+  digitalWrite(LED_VERMELHO, HIGH);
   delay(200);
-
-  digitalWrite(LED_AMARELO, HIGH); // Liga o amarelo
+  digitalWrite(LED_AMARELO, HIGH);
   delay(200);
-
-  digitalWrite(LED_VERMELHO, LOW); // Apaga o verde
-  digitalWrite(LED_VERDE, HIGH); // Liga o vermelho
+  digitalWrite(LED_VERMELHO, LOW);
+  digitalWrite(LED_VERDE, HIGH);
   delay(200);
-
-  digitalWrite(LED_AMARELO, LOW); // Apaga o amarelo
-  digitalWrite(LED_AZUL, HIGH); // Liga o azul
+  digitalWrite(LED_AMARELO, LOW);
+  digitalWrite(LED_AZUL, HIGH);
   delay(200);
-
-  digitalWrite(LED_VERDE, LOW); // Apaga o vermelho
+  digitalWrite(LED_VERDE, LOW);
   delay(200);
-
-  digitalWrite(LED_AZUL, LOW); // Apaga o azul
+  digitalWrite(LED_AZUL, LOW);
 }
 
 // Função para os bips no buzzer
 void bipBuzzer() {
-  tone(BUZZER, 1000); // Primeiro bip com frequência de 1000 Hz
+  tone(BUZZER, 1000);
   delay(300);
   noTone(BUZZER);
-
-  delay(50); // Pausa rápida entre os bips
-
-  tone(BUZZER, 1500); // Segundo bip com frequência de 1500 Hz
+  delay(50);
+  tone(BUZZER, 1500);
   delay(300);
   noTone(BUZZER);
 }
 
 void setup() {
-  
+  Serial.begin(9600);
   pwm.begin();
   pwm.setPWMFreq(50); // Configura a frequência para 50Hz
 
   for (int i = 0; i < 16; i++) {
     moveServo(i, initialPosition[i]);
   }
-  // Configuração dos pinos como saídas
+  
   pinMode(LED_ESP32, OUTPUT);
   pinMode(OLHO_ESQUERDO, OUTPUT);
   pinMode(OLHO_DIREITO, OUTPUT);
@@ -145,17 +126,33 @@ void setup() {
   pinMode(LED_AZUL, OUTPUT);
   pinMode(BUZZER, OUTPUT);
 
- // Sequência de LEDs coloridos
   sequenciaLEDs();
-
-  // Dois bips no buzzer
   bipBuzzer();
+}
 
+void processCommand(char command) {
+  switch (command) {
+    case '1':
+      moveServo(0, initialPosition[0]);
+      moveServo(1, initialPosition[1]);
+      break;
+    case '2':
+      moveServo(0, minPosition[0]);
+      moveServo(1, maxPosition[1]);
+      break;
+    case '3':
+      moveServo(0, minPosition[0]);
+      moveServo(1, maxPosition[1]);
+      break;
+    default:
+      return;
+  }
 }
 
 void loop() {
-
-  // Piscar olhos de forma natural
-  piscarOlhos();
-
+  if (Serial.available()) {
+    char command = Serial.read();
+    processCommand(command);
+  }
+  delay(50);
 }

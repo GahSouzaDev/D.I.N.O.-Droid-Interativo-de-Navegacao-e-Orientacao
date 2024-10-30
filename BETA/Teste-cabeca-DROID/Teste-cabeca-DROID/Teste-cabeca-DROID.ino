@@ -66,12 +66,12 @@ void moveServo(int servoNum, int targetAngle) {
   if (startPulse < endPulse) {
     for (int pos = startPulse; pos <= endPulse; pos++) {
       pwm.setPWM(servoNum, 0, pos);
-      delay(10); // Atraso para suavizar o movimento
+      delay(5); // Atraso para suavizar o movimento
     }
   } else {
     for (int pos = startPulse; pos >= endPulse; pos--) {
       pwm.setPWM(servoNum, 0, pos);
-      delay(10); // Atraso para suavizar o movimento
+      delay(5); // Atraso para suavizar o movimento
     }
   }
 

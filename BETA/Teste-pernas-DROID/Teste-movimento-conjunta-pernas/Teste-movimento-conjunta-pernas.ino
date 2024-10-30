@@ -100,8 +100,7 @@ void loop() {
         pwm.setPWM(15, 0, pulseLength(S15_MIN));
         pwm.setPWM(14, 0, pulseLength(S14_MIN));
         break;        
-        break;
-
+      
       case '4':
         // Coloca a perna esquerda no máximo e a perna direita na posição média
         pwm.setPWM(11, 0, pulseLength(S11_MAX));
