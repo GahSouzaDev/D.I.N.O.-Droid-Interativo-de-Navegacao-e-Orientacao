@@ -21,7 +21,7 @@ void piscarOlhos() {
   delay(tempoAbertos);
 
   // Pisca de forma dupla (exemplo de outra sequência)
-  for (int j = 0; j < random(1, 4); j++) {
+  for (int j = 0; j < random(1, 8); j++) {
     analogWrite(OLHO_ESQUERDO, 0);
     analogWrite(OLHO_DIREITO, 0);
     delay(random(60, 180)); // Pisca rapidamente
