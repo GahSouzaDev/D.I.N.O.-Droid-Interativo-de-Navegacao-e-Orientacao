@@ -108,5 +108,5 @@ void loop() {
     char command = Serial.read();
     processCommand(command);
   }
-  delay(50);
+  delay(100);
 }
