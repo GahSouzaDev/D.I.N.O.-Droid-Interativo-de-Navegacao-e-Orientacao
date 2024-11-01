@@ -1,19 +1,25 @@
-// Função para o robô "falar" o nome "Dino" com uma entonação contínua
+// Função para o robô "falar" o nome "Dino" com uma entonação contínua e dinâmica
 void falaDino() {
-  int volume = 25; // Volume fixo para o som
+  int volumeBase = 25; // Volume base para o som
 
-  // Início de "Di" com tom crescente para dar entonação
+  // Início de "Di" com tom crescente e ajuste dinâmico de volume
   for (int freq = 600; freq <= 900; freq += 10) {
+    int volume = map(freq, 600, 900, volumeBase, volumeBase + 20); // Aumenta o volume conforme a frequência
     tone(BUZZER, freq);
     analogWrite(BUZZER, volume);
-    delay(10); // Transição rápida para o tom subir como em "Di"
+    delay(15); // Transição um pouco mais suave
   }
   
-  // Transição para "no" - tom mais grave com descida gradual
-  for (int freq = 400; freq >= 300; freq -= 10) {
+  // Pequena pausa entre as sílabas para maior clareza
+  noTone(BUZZER);
+  delay(50);
+
+  // Transição para "no" - tom mais grave e volume decrescente para criar uma entonação suave
+  for (int freq = 400; freq >= 300; freq -= 5) {
+    int volume = map(freq, 300, 400, volumeBase, volumeBase - 10); // Diminui o volume junto com a frequência
     tone(BUZZER, freq);
     analogWrite(BUZZER, volume);
-    delay(30); // Duração um pouco mais longa para dar entonação de "noo"
+    delay(35); // Duração mais longa para dar o efeito de "noo"
   }
 
   noTone(BUZZER); // Desliga o buzzer ao final

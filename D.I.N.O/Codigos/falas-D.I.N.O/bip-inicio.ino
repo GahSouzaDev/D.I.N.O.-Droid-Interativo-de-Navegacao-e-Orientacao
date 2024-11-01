@@ -1,5 +1,5 @@
 // Função para os bips no buzzer
-void bipIncio() {
+void bipInicio() {
   //261 Hz a 4000 Hz.
   // Ajuste o volume (0-255)
   tone(BUZZER, 261); // Primeiro bip com frequência de 1000 Hz
