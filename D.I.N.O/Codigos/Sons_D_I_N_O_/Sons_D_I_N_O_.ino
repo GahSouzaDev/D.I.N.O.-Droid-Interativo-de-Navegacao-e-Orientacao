@@ -41,7 +41,7 @@ void loop() {
         contente();
         break;
     }
-      delay(50);
+      delay(100);
   }
 
 }
