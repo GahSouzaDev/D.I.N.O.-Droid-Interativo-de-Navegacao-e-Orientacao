@@ -35,10 +35,10 @@ void loop() {
         ajuda();
         break;
       case '8':
-        alerta():
+        alerta();
         break;
       case '9':
-        // Função futura para o som 9
+        contente();
         break;
     }
       delay(50);
