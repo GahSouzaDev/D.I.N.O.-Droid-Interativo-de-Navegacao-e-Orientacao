@@ -1,23 +1,23 @@
 // Função para os bips no buzzer
-void bipInicio() {
+void confirmacao() {
   //261 Hz a 4000 Hz.
   // Ajuste o volume (0-255)
   tone(BUZZER, 261); // Primeiro bip com frequência de 1000 Hz
-  analogWrite(BUZZER, 25);
+  analogWrite(BUZZER, volumeBase);
   delay(150);         // Duração do bip
   noTone(BUZZER);       // Para o som
 
   delay(50);          // Pausa rápida entre os bips
 
   tone(BUZZER, 329); // Segundo bip com frequência de 1500 Hz
-  analogWrite(BUZZER, 25);
+  analogWrite(BUZZER, volumeBase);
   delay(150);         // Duração do bip
   noTone(BUZZER);        // Para o som
 
   delay(50);          // Pausa rápida entre os bips
 
   tone(BUZZER, 493); // Terceiro bip com frequência de 1500 Hz
-  analogWrite(BUZZER, 25);
+  analogWrite(BUZZER, volumeBase);
   delay(150);         // Duração do bip
   noTone(BUZZER);        // Para o som
 }

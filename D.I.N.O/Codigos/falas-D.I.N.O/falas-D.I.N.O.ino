@@ -2,6 +2,7 @@
 #include <Wire.h>
 
 #define BUZZER 13         // Buzzer
+int volumeBase = 25;      //0 - 255
 
 void setup() {
   Serial.begin(9600); // Inicializa a comunicação serial
@@ -13,32 +14,34 @@ void loop() {
 
     switch (comando) {
       case '1':
-        bipInicio();
+        confirmacao();
         break;
       case '2':
-        falaDino();
+        falaNome();
         break;
       case '3':
-        // Função futura para o som 3
+        positivo();
         break;
       case '4':
-        // Função futura para o som 4
+        negativo();
         break;
       case '5':
-        // Função futura para o som 5
+        duvida();
         break;
       case '6':
-        // Função futura para o som 6
+        erro();
         break;
       case '7':
-        // Função futura para o som 7
+        ajuda();
         break;
       case '8':
-        // Função futura para o som 8
+        alerta():
         break;
       case '9':
         // Função futura para o som 9
         break;
     }
+      delay(50);
   }
+
 }
