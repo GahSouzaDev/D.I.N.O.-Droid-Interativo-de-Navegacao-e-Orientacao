@@ -1,6 +1,6 @@
 void controleCabeca(char command) {
-  int servos[16];        // Array para armazenar os índices dos servos que queremos mover.
-  int targetAngles[16];   // Array para armazenar os ângulos de destino desses servos.
+  int servos[4];        // Array para armazenar os índices dos servos que queremos mover.
+  int targetAngles[4];   // Array para armazenar os ângulos de destino desses servos.
 
   switch (command) {
     case '2':

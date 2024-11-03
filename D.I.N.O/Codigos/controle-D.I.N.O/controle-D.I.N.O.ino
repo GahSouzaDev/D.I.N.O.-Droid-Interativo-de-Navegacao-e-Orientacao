@@ -44,7 +44,7 @@ void moveServosTogether(int servos[], int targetAngles[], int numServos) {
         movement = true;
       }
     }
-    delay(10); // Pequeno atraso para controlar a velocidade do movimento simultâneo
+    delay(20); // Pequeno atraso para controlar a velocidade do movimento simultâneo
   }
 }
 
@@ -71,7 +71,10 @@ void setup() {
 void loop() {
   if (Serial.available()) {
     char command = Serial.read();
-    controleCabeca(command);
+
+    // Chama a função de controle da cabeça ou das pernas com base no comando
+    controleCabeca(command);  // Comandos para a cabeça
+    controlePernas(command);   // Comandos para as pernas
   }
   delay(100);
 }
