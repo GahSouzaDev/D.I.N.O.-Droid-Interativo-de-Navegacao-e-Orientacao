@@ -7,10 +7,15 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define SERVO_MIN_PULSE 112 // Pulso mínimo para o servo
 #define SERVO_MAX_PULSE 512 // Pulso máximo para o servo
 
-int minPosition[16] = {60, 5, 90, 40, 60, 120, 60, 135, 135, 135, 50, 60, 70, 80, 105, 115};
-int initialPosition[16] = {110, 100, 120, 75, 90, 90, 90, 105, 120, 120, 65, 75, 80, 90, 95, 105};
+int minPosition[16] = {80, 5, 90, 40, 60, 120, 60, 135, 135, 135, 50, 60, 70, 80, 105, 115};
+int initialPosition[16] = {120, 100, 120, 75, 90, 90, 90, 105, 120, 120, 65, 75, 80, 90, 95, 105};
 int maxPosition[16] = {160, 195, 150, 130, 120, 60, 120, 75, 105, 105, 80, 90, 90, 100, 85, 95};
-int currentPosition[16] = {110, 100, 120, 75, 90, 90, 90, 105, 120, 120, 65, 75, 80, 90, 95, 105};
+int currentPosition[16] = {120, 100, 120, 75, 90, 90, 90, 105, 120, 120, 65, 75, 80, 90, 95, 105};
+
+//S0, S1, S2 E S3 CABEÇA
+//S4, S5, S6 E S7 ROTAÇÃO PERNAS
+//S8, S9, S10 E S11 
+//S12, S13, S14 E S15
 
 #define LED_ESP32 2       
 #define OLHO_ESQUERDO 14  
@@ -63,50 +68,10 @@ void setup() {
   pinMode(BUZZER, OUTPUT);
 }
 
-void processCommand(char command) {
-  int servos[16];        // Array para armazenar os índices dos servos que queremos mover.
-  int targetAngles[16];   // Array para armazenar os ângulos de destino desses servos.
-
-  switch (command) {
-    case '1':
-      servos[0] = 0;                      // Define o servo de índice 0.
-      targetAngles[0] = initialPosition[0]; // Define o ângulo de destino para o servo 0 com a posição inicial.
-      
-      servos[1] = 1;                      // Define o servo de índice 1.
-      targetAngles[1] = initialPosition[1]; // Define o ângulo de destino para o servo 1 com a posição inicial.
-      
-      moveServosTogether(servos, targetAngles, 2); // Move os dois servos (0 e 1) para as posições definidas.
-      break;
-
-    case '2':
-      servos[0] = 0;                      // Define o servo de índice 0.
-      targetAngles[0] = minPosition[0];     // Define o ângulo de destino para o servo 0 na posição mínima.
-      
-      servos[1] = 1;                      // Define o servo de índice 1.
-      targetAngles[1] = minPosition[1];     // Define o ângulo de destino para o servo 1 na posição mínima.
-      
-      moveServosTogether(servos, targetAngles, 2); // Move os dois servos (0 e 1) para as posições definidas.
-      break;
-
-    case '3':
-      servos[0] = 0;                      // Define o servo de índice 0.
-      targetAngles[0] = minPosition[0];     // Define o ângulo de destino para o servo 0 na posição mínima.
-      
-      servos[1] = 1;                      // Define o servo de índice 1.
-      targetAngles[1] = maxPosition[1];     // Define o ângulo de destino para o servo 1 na posição máxima.
-      
-      moveServosTogether(servos, targetAngles, 2); // Move os dois servos (0 e 1) para as posições definidas.
-      break;
-
-    default:
-      return; // Retorna sem fazer nada se o comando não for reconhecido.
-  }
-}
-
 void loop() {
   if (Serial.available()) {
     char command = Serial.read();
-    processCommand(command);
+    controleCabeca(command);
   }
   delay(100);
 }
