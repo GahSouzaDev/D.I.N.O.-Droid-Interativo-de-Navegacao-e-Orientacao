@@ -82,6 +82,22 @@ int initialPosition[16] =
   MovePantEsqMax1, MovePantEsqMax2
 };
 
+int currentPosition[16] =   
+{
+  PescocoMed, 
+  RotacaoCabecaMed, 
+  AntenasMed, 
+  ElevacaoMed,  
+  
+  RotacaoPernaDirMed1,RotacaoPernaDirMed2,
+  RotacaoPernaEsqMed1,RotacaoPernaEsqMed2,   
+
+  MoveCoxaEsqMax1, MoveCoxaEsqMax2,
+  MoveCoxaDirMax1, MoveCoxaDirMax2,
+
+  MovePantDirMax1, MovePantDirMax2,
+  MovePantEsqMax1, MovePantEsqMax2
+};
 
 // Definição dos pinos
 #define LED_ESP32 2       // LED integrado no ESP32
