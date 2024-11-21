@@ -46,10 +46,10 @@ int RotacaoPernaEsqMax2 = 60, RotacaoPernaDirMax2 = 75;
 //                        MEDIA   
 int MoveCoxaEsqMed1 = 120, MoveCoxaDirMed1 = 65;
 int MoveCoxaEsqMed2 = 120, MoveCoxaDirMed2 = 75;
-//                 Rotação para dentro
+//             Rotação para dentro
 int MoveCoxaEsqMin1 = 135, MoveCoxaDirMin1 = 50;
 int MoveCoxaEsqMin2 = 135, MoveCoxaDirMin2 = 60;
-//                  Rotação para fora
+//              Rotação para fora
 int MoveCoxaEsqMax1 = 105, MoveCoxaDirMax1 = 80;
 int MoveCoxaEsqMax2 = 105, MoveCoxaDirMax2 = 90;
 
@@ -57,13 +57,14 @@ int MoveCoxaEsqMax2 = 105, MoveCoxaDirMax2 = 90;
 //                        MEDIA   
 int MovePantEsqMed1 = 95, MovePantDirMed1 = 90;
 int MovePantEsqMed2 = 105, MovePantDirMed2 = 90;
-//                 Rotação para dentro
+//              Rotação para dentro
 int MovePantEsqMin1 = 105, MovePantDirMin1 = 70;
 int MovePantEsqMin2 = 115, MovePantDirMin2 = 80;
-//                  Rotação para fora
+//               Rotação para fora
 int MovePantEsqMax1 = 85, MovePantDirMax1 = 90;
 int MovePantEsqMax2 = 95, MovePantDirMax2 = 100;
 
+//Exemplo da sequencia a ser seguida!
 int initialPosition[16] =   
 {
   PescocoMed, 
