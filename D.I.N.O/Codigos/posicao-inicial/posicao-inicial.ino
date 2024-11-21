@@ -43,8 +43,26 @@ int RotacaoPernaEsqMax1 = 120, RotacaoPernaDirMax1 = 120;
 int RotacaoPernaEsqMax2 = 60, RotacaoPernaDirMax2 = 75;
 
 //COXA (Parte superior da perna)
+//                        MEDIA   
+int MoveCoxaEsqMed1 = 90, MoveCoxaDirMed1 = 90;
+int MoveCoxaEsqMed2 = 90, MoveCoxaDirMed2 = 105;
+//                 Rotação para dentro
+int MoveCoxaEsqMin1 = 60, MoveCoxaDirMin1 = 60;
+int MoveCoxaEsqMin2 = 120, MoveCoxaDirMin2 = 135;
+//                  Rotação para fora
+int MoveCoxaEsqMax1 = 120, MoveCoxaDirMax1 = 120;
+int MoveCoxaEsqMax2 = 60, MoveCoxaDirMax2 = 75;
 
 //PANTURRILHA (Parte de baixo da perna)
+//                        MEDIA   
+int MovePantEsqMed1 = 90, MovePantDirMed1 = 90;
+int MovePantEsqMed2 = 90, MovePantDirMed2 = 105;
+//                 Rotação para dentro
+int MovePantEsqMin1 = 60, MovePantDirMin1 = 60;
+int MovePantEsqMin2 = 120, MovePantDirMin2 = 135;
+//                  Rotação para fora
+int MovePantEsqMax1 = 120, MovePantDirMax1 = 120;
+int MovePantEsqMax2 = 60, MovePantDirMax2 = 75;
 
 int minPosition[16] =       {PescocoMin, 0, 90, 40,   60,120,60,135,    135,135,50,60,70,80,105,115};      
 //int initialPosition[16] =        {130, 100, 120, 75,  90,90,90,105,120,120,65,75,80,90,95,105}; 
