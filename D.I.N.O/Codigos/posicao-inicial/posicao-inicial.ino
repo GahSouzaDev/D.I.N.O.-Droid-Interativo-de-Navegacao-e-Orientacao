@@ -9,7 +9,7 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
 //----CABEÇA----//
 //Pescoço
-int PescocoMin = 90, PescocoMed = 130, PescocoMax = 160;
+int PescocoMin = 90, PescocoMed = 120, PescocoMax = 160;
 
 //Rotação da cabeça
 int RotacaoCabecaMed = 100; 
@@ -44,32 +44,43 @@ int RotacaoPernaEsqMax2 = 60, RotacaoPernaDirMax2 = 75;
 
 //COXA (Parte superior da perna)
 //                        MEDIA   
-int MoveCoxaEsqMed1 = 90, MoveCoxaDirMed1 = 90;
-int MoveCoxaEsqMed2 = 90, MoveCoxaDirMed2 = 105;
+int MoveCoxaEsqMed1 = 120, MoveCoxaDirMed1 = 65;
+int MoveCoxaEsqMed2 = 120, MoveCoxaDirMed2 = 75;
 //                 Rotação para dentro
-int MoveCoxaEsqMin1 = 60, MoveCoxaDirMin1 = 60;
-int MoveCoxaEsqMin2 = 120, MoveCoxaDirMin2 = 135;
+int MoveCoxaEsqMin1 = 135, MoveCoxaDirMin1 = 50;
+int MoveCoxaEsqMin2 = 135, MoveCoxaDirMin2 = 60;
 //                  Rotação para fora
-int MoveCoxaEsqMax1 = 120, MoveCoxaDirMax1 = 120;
-int MoveCoxaEsqMax2 = 60, MoveCoxaDirMax2 = 75;
+int MoveCoxaEsqMax1 = 105, MoveCoxaDirMax1 = 80;
+int MoveCoxaEsqMax2 = 105, MoveCoxaDirMax2 = 90;
 
 //PANTURRILHA (Parte de baixo da perna)
 //                        MEDIA   
-int MovePantEsqMed1 = 90, MovePantDirMed1 = 90;
-int MovePantEsqMed2 = 90, MovePantDirMed2 = 105;
+int MovePantEsqMed1 = 95, MovePantDirMed1 = 90;
+int MovePantEsqMed2 = 105, MovePantDirMed2 = 90;
 //                 Rotação para dentro
-int MovePantEsqMin1 = 60, MovePantDirMin1 = 60;
-int MovePantEsqMin2 = 120, MovePantDirMin2 = 135;
+int MovePantEsqMin1 = 105, MovePantDirMin1 = 70;
+int MovePantEsqMin2 = 115, MovePantDirMin2 = 80;
 //                  Rotação para fora
-int MovePantEsqMax1 = 120, MovePantDirMax1 = 120;
-int MovePantEsqMax2 = 60, MovePantDirMax2 = 75;
+int MovePantEsqMax1 = 85, MovePantDirMax1 = 90;
+int MovePantEsqMax2 = 95, MovePantDirMax2 = 100;
 
-int minPosition[16] =       {PescocoMin, 0, 90, 40,   60,120,60,135,    135,135,50,60,70,80,105,115};      
-//int initialPosition[16] =        {130, 100, 120, 75,  90,90,90,105,120,120,65,75,80,90,95,105}; 
-int initialPosition[16] =   {PescocoMed, 100, 120, 75,  RotacaoPernaDirMed1,RotacaoPernaDirMed2,RotacaoPernaEsqMed1,RotacaoPernaEsqMed2,   105,105,80,90,90,100,85,95}; 
-int maxPosition[16] =       {PescocoMax, 190, 150, 130, 120,60,120,75,  105,105,80,90,90,100,85,95};   
-//int currentPosition[16] =        {130, 100, 120, 75,  90,90,90,105,120,120,65,75,80,90,95,105}; // Posições atuais
-int currentPosition[16] =    {PescocoMed, 100, 120, 75,  RotacaoPernaDirMed1,RotacaoPernaDirMed2,RotacaoPernaEsqMed1,RotacaoPernaEsqMed2,   105,105,80,90,90,100,85,95}; // Posições atuais
+int initialPosition[16] =   
+{
+  PescocoMed, 
+  RotacaoCabecaMed, 
+  AntenasMed, 
+  ElevacaoMed,  
+  
+  RotacaoPernaDirMed1,RotacaoPernaDirMed2,
+  RotacaoPernaEsqMed1,RotacaoPernaEsqMed2,   
+
+  MoveCoxaEsqMax1, MoveCoxaEsqMax2,
+  MoveCoxaDirMax1, MoveCoxaDirMax2,
+
+  MovePantDirMax1, MovePantDirMax2,
+  MovePantEsqMax1, MovePantEsqMax2
+};
+
 
 // Definição dos pinos
 #define LED_ESP32 2       // LED integrado no ESP32
