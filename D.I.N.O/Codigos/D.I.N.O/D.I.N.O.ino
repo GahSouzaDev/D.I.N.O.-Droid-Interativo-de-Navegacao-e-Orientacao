@@ -1,3 +1,15 @@
+#include <WiFi.h>
+#include <WebServer.h>
+
+// Definir o nome e a senha da rede Wi-Fi que o ESP32 irá criar
+const char *ssid = "D.I.N.O."; // Nome da rede Wi-Fi
+const char *password = "123456789";  // Senha da rede Wi-Fi
+
+// Criação do servidor web na porta 80
+WebServer server(80);
+
+// HTML da página que será servida
+const char* htmlContent = R"rawliteral(
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -60,3 +72,30 @@
     </svg>
 </body>
 </html>
+)rawliteral";
+
+// Função que será chamada quando a página for acessada
+void handleRoot() {
+  server.send(200, "text/html", htmlContent); // Envia o conteúdo HTML
+}
+
+void setup() {
+  Serial.begin(115200);
+  
+  // Inicializa o ESP32 como Access Point
+  WiFi.softAP(ssid, password);  // Cria a rede Wi-Fi
+  
+  Serial.println();
+  Serial.print("IP do ESP32: ");
+  Serial.println(WiFi.softAPIP()); // Mostra o IP para acessar a página
+
+  // Define a função de resposta para a raiz
+  server.on("/", HTTP_GET, handleRoot);
+  
+  // Inicia o servidor
+  server.begin();
+}
+
+void loop() {
+  server.handleClient(); // Aguarda e processa as requisições HTTP
+}
