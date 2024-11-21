@@ -12,11 +12,11 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 int PescocoMin = 90, PescocoMed = 130, PescocoMax = 160;
 
 //Rotação da cabeça
-int RotacaoMed = 100; 
+int RotacaoCabecaMed = 100; 
 //Rotação para DIREITA
-int RotacaoDirMax = 0, RotacaoDirMed = 50;
+int RotacaoCabecaDirMax = 0, RotacaocabecaDirMed = 50;
 //Rotação para ESQUERDA
-int RotacaoEsqMax = 150, RotacaoEspMed = 200;
+int RotacaoCabecaEsqMax = 150, RotacaoCabecaEspMed = 200;
 
 //Antenas
 int AntenasMed = 120, AntenasMax = 150, AntenasMin = 90;
@@ -29,13 +29,29 @@ int ElevacaoBaixoMed = 57.5, ElevacaoBaixoMax = 40;
 int ElevacaoCimaMed = 92.5, ElevacaoCimaMax = 130;
 
 //---PERNAS---//
+//          ESQUEDA                  DIREITA   
 
-int minPosition[16] =       {PescocoMin, 0, 90, 40,   60,120,60,135,135,135,50,60,70,80,105,115};      
+//Rotação  
+//                        MEDIA   
+int RotacaoPernaEsqMed1 = 90, RotacaoPernaDirMed1 = 90;
+int RotacaoPernaEsqMed2 = 90, RotacaoPernaDirMed2 = 105;
+//                 Rotação para dentro
+int RotacaoPernaEsqMin1 = 60, RotacaoPernaDirMin1 = 60;
+int RotacaoPernaEsqMin2 = 120, RotacaoPernaDirMin2 = 135;
+//                  Rotação para fora
+int RotacaoPernaEsqMax1 = 120, RotacaoPernaDirMax1 = 120;
+int RotacaoPernaEsqMax2 = 60, RotacaoPernaDirMax2 = 75;
+
+//COXA (Parte superior da perna)
+
+//PANTURRILHA (Parte de baixo da perna)
+
+int minPosition[16] =       {PescocoMin, 0, 90, 40,   60,120,60,135,    135,135,50,60,70,80,105,115};      
 //int initialPosition[16] =        {130, 100, 120, 75,  90,90,90,105,120,120,65,75,80,90,95,105}; 
-int initialPosition[16] =   {PescocoMed, 100, 120, 75,  120,60,120,75,105,105,80,90,90,100,85,95}; 
-int maxPosition[16] =       {PescocoMax, 190, 150, 130, 120,60,120,75,105,105,80,90,90,100,85,95};   
+int initialPosition[16] =   {PescocoMed, 100, 120, 75,  RotacaoPernaDirMed1,RotacaoPernaDirMed2,RotacaoPernaEsqMed1,RotacaoPernaEsqMed2,   105,105,80,90,90,100,85,95}; 
+int maxPosition[16] =       {PescocoMax, 190, 150, 130, 120,60,120,75,  105,105,80,90,90,100,85,95};   
 //int currentPosition[16] =        {130, 100, 120, 75,  90,90,90,105,120,120,65,75,80,90,95,105}; // Posições atuais
-int currentPosition[16] =    {PescocoMed, 100, 120, 75,  120,60,120,75,105,105,80,90,90,100,85,95}; // Posições atuais
+int currentPosition[16] =    {PescocoMed, 100, 120, 75,  RotacaoPernaDirMed1,RotacaoPernaDirMed2,RotacaoPernaEsqMed1,RotacaoPernaEsqMed2,   105,105,80,90,90,100,85,95}; // Posições atuais
 
 // Definição dos pinos
 #define LED_ESP32 2       // LED integrado no ESP32
