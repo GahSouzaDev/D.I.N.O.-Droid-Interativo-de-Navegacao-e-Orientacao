@@ -7,10 +7,35 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define SERVO_MIN_PULSE 112 // Pulso mínimo para o servo
 #define SERVO_MAX_PULSE 512 // Pulso máximo para o servo
 
-int minPosition[16] = {90, 0, 90, 40,60,120,60,135,135,135,50,60,70,80,105,115};       // Posições mínimas
-int initialPosition[16] = {130, 100, 120, 75,90,90,90,105,120,120,65,75,80,90,95,105}; // Posições iniciais
-int maxPosition[16] = {160, 190, 150, 130,120,60,120,75,105,105,80,90,90,100,85,95};   // Posições máximas
-int currentPosition[16] = {130, 100, 120, 75,90,90,90,105,120,120,65,75,80,90,95,105}; // Posições atuais
+//----CABEÇA----//
+//Pescoço
+int PescocoMin = 90, PescocoMed = 130, PescocoMax = 160;
+
+//Rotação da cabeça
+int RotacaoMed = 100; 
+//Rotação para DIREITA
+int RotacaoDirMax = 0, RotacaoDirMed = 50;
+//Rotação para ESQUERDA
+int RotacaoEsqMax = 150, RotacaoEspMed = 200;
+
+//Antenas
+int AntenasMed = 120, AntenasMax = 150, AntenasMin = 90;
+
+//Elevação da cabeça
+int ElevacaoMed = 75;
+//Cabeça para BAIXO
+int ElevacaoBaixoMed = 57.5, ElevacaoBaixoMax = 40;
+//Cabeça para CIMA
+int ElevacaoCimaMed = 92.5, ElevacaoCimaMax = 130;
+
+//---PERNAS---//
+
+int minPosition[16] =       {PescocoMin, 0, 90, 40,   60,120,60,135,135,135,50,60,70,80,105,115};      
+//int initialPosition[16] =        {130, 100, 120, 75,  90,90,90,105,120,120,65,75,80,90,95,105}; 
+int initialPosition[16] =   {PescocoMed, 100, 120, 75,  120,60,120,75,105,105,80,90,90,100,85,95}; 
+int maxPosition[16] =       {PescocoMax, 190, 150, 130, 120,60,120,75,105,105,80,90,90,100,85,95};   
+//int currentPosition[16] =        {130, 100, 120, 75,  90,90,90,105,120,120,65,75,80,90,95,105}; // Posições atuais
+int currentPosition[16] =    {PescocoMed, 100, 120, 75,  120,60,120,75,105,105,80,90,90,100,85,95}; // Posições atuais
 
 // Definição dos pinos
 #define LED_ESP32 2       // LED integrado no ESP32
