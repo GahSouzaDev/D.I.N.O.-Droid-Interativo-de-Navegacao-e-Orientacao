@@ -72,6 +72,7 @@ const char* htmlContent = R"rawliteral(
     </svg>
 </body>
 </html>
+
 )rawliteral";
 
 // Função que será chamada quando a página for acessada

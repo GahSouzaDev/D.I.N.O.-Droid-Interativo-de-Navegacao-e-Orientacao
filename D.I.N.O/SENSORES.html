@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robo com Equilíbrio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            border: 5px solid #888; /* Borda cinza ao redor de tudo */
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Quadrado com a cruz */
+        .square {
+            position: relative;
+            width: 70vw;
+            height: 70vw;
+            max-width: 300px;
+            max-height: 300px;
+            background-color: #ddd;
+            border: 4px solid #007bff; /* Borda azul ao redor do quadrado */
+        }
+
+        .cross {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cross-line {
+            position: absolute;
+            background-color: #333;
+        }
+
+        .horizontal {
+            width: 100%;
+            height: 2px;
+        }
+
+        .vertical {
+            height: 100%;
+            width: 2px;
+        }
+
+        /* Bola vermelha */
+        .ball {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 50%;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Display de 7 segmentos */
+        .display-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .segment {
+            width: 40px;
+            height: 70px;
+            margin: 5px;
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="square">
+            <div class="cross">
+                <div class="horizontal cross-line"></div>
+                <div class="vertical cross-line"></div>
+            </div>
+            <div class="ball" id="ball" style="left: 50%; top: 50%;"></div>
+        </div><br><br><br>
+        <h1>Distancia em centimetros</h1>
+        <div class="display-container">
+            <div class="segment">0</div>
+            <div class="segment">0</div>
+            <div class="segment">0</div>
+        </div>
+    </div>
+</body>
+</html>
