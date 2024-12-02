@@ -15,7 +15,7 @@ void controleCabeca(char command) {
 
     case '1':
       servos[0] = 0;                      // Define o servo de índice 0.
-      targetAngles[0] = initialPosition[0];     // Define o ângulo de destino para o servo 0 na posição mínima.
+      targetAngles[0] = minPosition[0];     // Define o ângulo de destino para o servo 0 na posição mínima.
       
       servos[1] = 1;                      // Define o servo de índice 1.
       targetAngles[1] = minPosition[1];     // Define o ângulo de destino para o servo 1 na posição mínima.
@@ -25,7 +25,7 @@ void controleCabeca(char command) {
 
     case '3':
       servos[0] = 0;                      // Define o servo de índice 0.
-      targetAngles[0] = initialPosition[0];     // Define o ângulo de destino para o servo 0 na posição mínima.
+      targetAngles[0] =  maxPosition[0];     // Define o ângulo de destino para o servo 0 na posição mínima.
       
       servos[1] = 1;                      // Define o servo de índice 1.
       targetAngles[1] = maxPosition[1];     // Define o ângulo de destino para o servo 1 na posição máxima.

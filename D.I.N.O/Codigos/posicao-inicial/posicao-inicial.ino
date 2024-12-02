@@ -16,7 +16,7 @@ int RotacaoCabecaMed = 100;
 //Rotação para DIREITA
 int RotacaoCabecaDirMax = 0, RotacaocabecaDirMed = 50;
 //Rotação para ESQUERDA
-int RotacaoCabecaEsqMax = 150, RotacaoCabecaEspMed = 200;
+int RotacaoCabecaEsqMax = 200, RotacaoCabecaEspMed = 150;
 
 //Antenas
 int AntenasMed = 120, AntenasMax = 150, AntenasMin = 90;
@@ -34,7 +34,7 @@ int ElevacaoCimaMed = 92.5, ElevacaoCimaMax = 130;
 //Rotação  
 //                        MEDIA   
 int RotacaoPernaEsqMed1 = 90, RotacaoPernaDirMed1 = 90;
-int RotacaoPernaEsqMed2 = 90, RotacaoPernaDirMed2 = 105;
+int RotacaoPernaEsqMed2 = 90, RotacaoPernaDirMed1 = 105;
 //                 Rotação para dentro
 int RotacaoPernaEsqMin1 = 60, RotacaoPernaDirMin1 = 60;
 int RotacaoPernaEsqMin2 = 120, RotacaoPernaDirMin2 = 135;
