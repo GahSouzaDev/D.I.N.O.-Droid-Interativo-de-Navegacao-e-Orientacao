@@ -110,10 +110,10 @@ void controlePernas(char command) {
 
   switch (command) {
     case 'w': // Inicial - posição central para ambas as pernas
-      servos[0] = 4; targetAngles[0] = RotacaoPernaEsqMed1 // Rotações perna esquerda
+      servos[0] = 4; targetAngles[0] = RotacaoPernaEsqMed1; // Rotações perna esquerda
       servos[1] = 5; targetAngles[1] = RotacaoPernaEsqMed2;
       servos[2] = 6; targetAngles[2] = RotacaoPernaDirMed1; // Rotações perna direita
-      servos[3] = 7; targetAngles[3] = ERotacaoPernaDirMed1;
+      servos[3] = 7; targetAngles[3] = RotacaoPernaDirMed2;
 
       servos[4] = 8; targetAngles[4] = MoveCoxaEsqMax1; // Rotações perna esquerda
       servos[5] = 9; targetAngles[5] = MoveCoxaEsqMax2;
@@ -128,10 +128,10 @@ void controlePernas(char command) {
       break;
 
     case 'q': // Esquerda no mínimo, direita no máximo
-      servos[0] = 4; targetAngles[0] = RotacaoPernaEsqMed1 // Rotações perna esquerda
+      servos[0] = 4; targetAngles[0] = RotacaoPernaEsqMed1; // Rotações perna esquerda
       servos[1] = 5; targetAngles[1] = RotacaoPernaEsqMed2;
       servos[2] = 6; targetAngles[2] = RotacaoPernaDirMed1; // Rotações perna direita
-      servos[3] = 7; targetAngles[3] = ERotacaoPernaDirMed1;
+      servos[3] = 7; targetAngles[3] = RotacaoPernaDirMed2;
 
       servos[4] = 8; targetAngles[4] = MoveCoxaEsqMin1; // Rotações perna esquerda
       servos[5] = 9; targetAngles[5] = MoveCoxaEsqMin2;
@@ -146,10 +146,10 @@ void controlePernas(char command) {
       break;
 
     case 'e': // Direita no mínimo, esquerda no máximo
-      servos[0] = 4; targetAngles[0] = RotacaoPernaEsqMed1 // Rotações perna esquerda
+      servos[0] = 4; targetAngles[0] = RotacaoPernaEsqMed1; // Rotações perna esquerda
       servos[1] = 5; targetAngles[1] = RotacaoPernaEsqMed2;
       servos[2] = 6; targetAngles[2] = RotacaoPernaDirMed1; // Rotações perna direita
-      servos[3] = 7; targetAngles[3] = ERotacaoPernaDirMed1;
+      servos[3] = 7; targetAngles[3] = RotacaoPernaDirMed2;
 
       servos[4] = 8; targetAngles[4] = MoveCoxaEsqMax1; // Rotações perna esquerda
       servos[5] = 9; targetAngles[5] = MoveCoxaEsqMax2;
@@ -164,10 +164,10 @@ void controlePernas(char command) {
       break;
 
     case 'r': // Direita no mínimo, esquerda no máximo
-      servos[0] = 4; targetAngles[0] = RotacaoPernaEsqMed1 // Rotações perna esquerda
+      servos[0] = 4; targetAngles[0] = RotacaoPernaEsqMed1; // Rotações perna esquerda
       servos[1] = 5; targetAngles[1] = RotacaoPernaEsqMed2;
       servos[2] = 6; targetAngles[2] = RotacaoPernaDirMed1; // Rotações perna direita
-      servos[3] = 7; targetAngles[3] = ERotacaoPernaDirMed1;
+      servos[3] = 7; targetAngles[3] = RotacaoPernaDirMed2;
 
       servos[4] = 8; targetAngles[4] = MoveCoxaEsqMax1; // Rotações perna esquerda
       servos[5] = 9; targetAngles[5] = MoveCoxaEsqMax2;
@@ -182,26 +182,31 @@ void controlePernas(char command) {
 
 for (int i = 0; i < 8; i++) {
 
+      servos[0] = 4; targetAngles[0] = RotacaoPernaEsqMed1; // Rotações perna esquerda
+      servos[1] = 5; targetAngles[1] = RotacaoPernaEsqMed2;
+      servos[2] = 6; targetAngles[2] = RotacaoPernaDirMax1; // Rotações perna direita
+      servos[3] = 7; targetAngles[3] = RotacaoPernaDirMax2;
+      
       servos[4] = 8; targetAngles[4] = MoveCoxaEsqMax1; // Rotações perna esquerda
       servos[5] = 9; targetAngles[5] = MoveCoxaEsqMax2;
-      servos[6] = 10; targetAngles[6] = MoveCoxaDirMin1; // Rotações perna direita
-      servos[7] = 11; targetAngles[7] = MoveCoxaDirMin2;
+      servos[6] = 10; targetAngles[6] = MoveCoxaDirMed1; // Rotações perna direita
+      servos[7] = 11; targetAngles[7] = MoveCoxaDirMed2;
 
       servos[8] = 12; targetAngles[8] = MovePantDirMed1; // Rotações perna esquerda
       servos[9] = 13; targetAngles[9] = MovePantDirMed2;
       servos[10] = 14; targetAngles[10] = MovePantEsqMax1; // Rotações perna direita
       servos[11] = 15; targetAngles[11] = MovePantEsqMax2;
-      moveServosTogether(servos, targetAngles, 8);
-      delay(100);
+            
+      moveServosTogether(servos, targetAngles, 12);
+      delay(1000);
 
-      servos[0] = 4; targetAngles[0] = RotacaoPernaEsqMin1 // Rotações perna esquerda
-      servos[1] = 5; targetAngles[1] = RotacaoPernaEsqMin2;
-      servos[2] = 6; targetAngles[2] = RotacaoPernaDirMax1; // Rotações perna direita
-      servos[3] = 7; targetAngles[3] = ERotacaoPernaDirMax1;
-      moveServosTogether(servos, targetAngles, 4);
-
-      servos[4] = 8; targetAngles[4] = MoveCoxaEsqMin1; // Rotações perna esquerda
-      servos[5] = 9; targetAngles[5] = MoveCoxaEsqMin2;
+      servos[0] = 4; targetAngles[0] = RotacaoPernaEsqMax1; // Rotações perna esquerda
+      servos[1] = 5; targetAngles[1] = RotacaoPernaEsqMax2;
+      servos[2] = 6; targetAngles[2] = RotacaoPernaDirMed1; // Rotações perna direita
+      servos[3] = 7; targetAngles[3] = RotacaoPernaDirMed2;
+      
+      servos[4] = 8; targetAngles[4] = MoveCoxaEsqMed1; // Rotações perna esquerda
+      servos[5] = 9; targetAngles[5] = MoveCoxaEsqMed2;
       servos[6] = 10; targetAngles[6] = MoveCoxaDirMax1; // Rotações perna direita
       servos[7] = 11; targetAngles[7] = MoveCoxaDirMax2;
 
@@ -209,26 +214,26 @@ for (int i = 0; i < 8; i++) {
       servos[9] = 13; targetAngles[9] = MovePantDirMax2;
       servos[10] = 14; targetAngles[10] = MovePantEsqMed1; // Rotações perna direita
       servos[11] = 15; targetAngles[11] = MovePantEsqMed2;
-      moveServosTogether(servos, targetAngles, 8);
-      delay(100);
-
-      servos[0] = 4; targetAngles[0] = RotacaoPernaEsqMin1 // Rotações perna esquerda
-      servos[1] = 5; targetAngles[1] = RotacaoPernaEsqMin2;
-      servos[2] = 6; targetAngles[2] = RotacaoPernaDirMax1; // Rotações perna direita
-      servos[3] = 7; targetAngles[3] = ERotacaoPernaDirMax1;
-      moveServosTogether(servos, targetAngles, 4);
+            
+      moveServosTogether(servos, targetAngles, 12);
+      delay(1000);
 }
 
-      servos[0] = 8; targetAngles[0] = MoveCoxaEsqMax1; // Rotações perna esquerda
-      servos[1] = 9; targetAngles[1] = MoveCoxaEsqMax2;
-      servos[2] = 10; targetAngles[2] = MoveCoxaDirMax1; // Rotações perna direita
-      servos[3] = 11; targetAngles[3] = MoveCoxaDirMax2;
+      servos[0] = 4; targetAngles[0] = RotacaoPernaEsqMed1; // Rotações perna esquerda
+      servos[1] = 5; targetAngles[1] = RotacaoPernaEsqMed2;
+      servos[2] = 6; targetAngles[2] = RotacaoPernaDirMed1; // Rotações perna direita
+      servos[3] = 7; targetAngles[3] = RotacaoPernaDirMed2;
 
-      servos[4] = 12; targetAngles[4] = MovePantDirMax1; // Rotações perna esquerda
-      servos[5] = 13; targetAngles[5] = MovePantDirMax2;
-      servos[6] = 14; targetAngles[6] = MovePantEsqMax1; // Rotações perna direita
-      servos[7] = 15; targetAngles[7] = MovePantEsqMax2;
-      moveServosTogether(servos, targetAngles, 8);
+      servos[4] = 8; targetAngles[4] = MoveCoxaEsqMax1; // Rotações perna esquerda
+      servos[5] = 9; targetAngles[5] = MoveCoxaEsqMax2;
+      servos[6] = 10; targetAngles[6] = MoveCoxaDirMax1; // Rotações perna direita
+      servos[7] = 11; targetAngles[7] = MoveCoxaDirMax2;
+
+      servos[8] = 12; targetAngles[8] = MovePantDirMax1; // Rotações perna esquerda
+      servos[9] = 13; targetAngles[9] = MovePantDirMax2;
+      servos[10] = 14; targetAngles[10] = MovePantEsqMax1; // Rotações perna direita
+      servos[11] = 15; targetAngles[11] = MovePantEsqMax2;
+      moveServosTogether(servos, targetAngles, 12);
       break;
 
     default:
@@ -243,7 +248,7 @@ void controleCabeca(char command) {
 
   switch (command) {
     case '2': // Pescoço e cabeça na posição inicial
-      servos[0] = 0; targetAngles[0] = PescocoMed;
+      servos[0] = 0; targetAngles[0] = PescocoMin;
       servos[1] = 1; targetAngles[1] = RotacaoCabecaMed;
       moveServosTogether(servos, targetAngles, 2);
       break;
